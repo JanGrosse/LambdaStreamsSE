@@ -2,10 +2,13 @@ package main;
 
 import com.sun.xml.internal.bind.v2.model.core.ID;
 
+import java.awt.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application implements IApplication {
     private ArrayList<Record> records;
@@ -53,8 +56,8 @@ public class Application implements IApplication {
                 "SELECT AVG(borrowEndTimeStamp - borrowStartTimestamp) FROM data WHERE (book = 'book01')");
         System.out.println();
         double res = records.stream()
-                .filter(rec -> Objects.equals(rec.getSignature(), "book01"))
-                .mapToLong(rec -> (rec.getBorrowEndTimeStamp() - rec.getBorrowStartTimestamp()))
+                .filter(rec -> Objects.equals(rec.getBook(), "book01"))
+                .mapToDouble(rec -> (rec.getBorrowEndTimeStamp() - rec.getBorrowStartTimestamp()))
                 .average()
                 .getAsDouble();
         System.out.println(res);
@@ -82,12 +85,11 @@ public class Application implements IApplication {
         System.out.println("--- query03\n" +
                 "SELECT id,book,signature,location FROM data ORDER BY location");
         System.out.println();
-        Object[] temp = records.stream()
+        List temp = records.stream()
                 .sorted(Comparator.comparing(Record::getLocation))
                 .map(rec -> new Query03Result(rec.getId(), rec.getBook(), rec.getSignature(), rec.getLocation(), rec.getCustomerID()))
-                .toArray();
-        Query03Result[] res = (Query03Result[]) temp;
-        System.out.println(Arrays.toString(res));
+                .collect(Collectors.toList());
+        System.out.println(temp.toString());
         System.out.println();
     }
 
@@ -99,8 +101,8 @@ public class Application implements IApplication {
                 .sorted(RecordComparator::compare)
                 .map(rec -> new Query04Result(rec.getId(), rec.getSignature(), rec.getBook()))
                 .toArray();
-        Query04Result[] res = (Query04Result[]) temp;
-        System.out.println(Arrays.toString(res));
+       // Query04Result[] res = (Query04Result[]) temp;
+        System.out.println(Arrays.toString(temp));
         System.out.println();
     }
 
