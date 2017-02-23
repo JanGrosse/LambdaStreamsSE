@@ -1,16 +1,16 @@
 package main;
 
 public interface IApplication {
-    void init();
-    void printRecords();
-    void executeQuery01();
-    void executeQuery02();
-    void executeQuery03();
-    void executeQuery04();
-    void executeQuery05();
-    void executeQuery06();
-    void executeQuery07();
-    void executeQuery08();
-    void executeQuery09();
-    void executeQuery10();
+    public void init();
+    public void printRecords();
+    public void executeQuery01();
+    public void executeQuery02();
+    public void executeQuery03();
+    public void executeQuery04();
+    public void executeQuery05();
+    public void executeQuery06();
+    public void executeQuery07();
+    public void executeQuery08();
+    public void executeQuery09();
+    public void executeQuery10();
 }

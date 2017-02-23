@@ -5,14 +5,12 @@ public class Query03Result {
     String book;
     String signature;
     String location;
-    int customerID;
 
-    public Query03Result(int id, String book, String signature, String location, int customerID) {
+    public Query03Result(int id, String book, String signature, String location) {
         this.id = id;
         this.book = book;
         this.signature = signature;
         this.location = location;
-        this.customerID = customerID;
     }
 
     public int getId() {
@@ -47,14 +45,6 @@ public class Query03Result {
         this.location = location;
     }
 
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
     @Override
     public String toString() {
         return "Query03Result{" +
@@ -62,7 +52,6 @@ public class Query03Result {
                 ", book='" + book + '\'' +
                 ", signature='" + signature + '\'' +
                 ", location='" + location + '\'' +
-                ", customerID=" + customerID +
                 '}';
     }
 }
