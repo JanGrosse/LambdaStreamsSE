@@ -15,10 +15,6 @@ public class Query03Result {
         this.customerID = customerID;
     }
 
-    @Override
-    public String toString(){
-       return "ID: "+id+", Signature: "+signature+", Book: "+book+", Location: "+location;
-    }
     public int getId() {
         return id;
     }
@@ -57,5 +53,16 @@ public class Query03Result {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    @Override
+    public String toString() {
+        return "Query03Result{" +
+                "id=" + id +
+                ", book='" + book + '\'' +
+                ", signature='" + signature + '\'' +
+                ", location='" + location + '\'' +
+                ", customerID=" + customerID +
+                '}';
     }
 }

@@ -24,4 +24,12 @@ public class Query05Result {
     public void setBook(String book) {
         this.book = book;
     }
+
+    @Override
+    public String toString() {
+        return "Query05Result{" +
+                "id=" + id +
+                ", book='" + book + '\'' +
+                '}';
+    }
 }

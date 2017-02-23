@@ -10,9 +10,7 @@ public class Query04Result {
         this.signature = signature;
         this.book = book;
     }
-    public String toString(){
-        return "ID: "+id+", Signature: "+signature+", Book: "+book;
-    }
+
     public int getId() {
         return id;
     }
@@ -35,5 +33,14 @@ public class Query04Result {
 
     public void setBook(String book) {
         this.book = book;
+    }
+
+    @Override
+    public String toString() {
+        return "Query04Result{" +
+                "id=" + id +
+                ", signature='" + signature + '\'' +
+                ", book='" + book + '\'' +
+                '}';
     }
 }

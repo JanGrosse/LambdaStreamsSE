@@ -74,4 +74,17 @@ public class Record {
     public void setBorrowEndTimeStamp(long borrowEndTimeStamp) {
         this.borrowEndTimeStamp = borrowEndTimeStamp;
     }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "id=" + id +
+                ", book='" + book + '\'' +
+                ", signature='" + signature + '\'' +
+                ", location='" + location + '\'' +
+                ", customerID=" + customerID +
+                ", borrowStartTimestamp=" + borrowStartTimestamp +
+                ", borrowEndTimeStamp=" + borrowEndTimeStamp +
+                '}';
+    }
 }

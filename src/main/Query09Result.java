@@ -24,4 +24,12 @@ public class Query09Result {
     public void setBook(String book) {
         this.book = book;
     }
+
+    @Override
+    public String toString() {
+        return "Query09Result{" +
+                "count=" + count +
+                ", book='" + book + '\'' +
+                '}';
+    }
 }

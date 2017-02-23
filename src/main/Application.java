@@ -76,7 +76,7 @@ public class Application implements IApplication {
                 .sorted(Comparator.comparing(Record::getLocation))
                 .map(rec -> new Query03Result(rec.getId(), rec.getBook(), rec.getSignature(), rec.getLocation(), rec.getCustomerID()))
                 .collect(Collectors.toList());
-        for(int i = 0; i < temp.size(); i++){
+        for (int i = 0; i < temp.size(); i++) {
             System.out.println(temp.get(i).toString());
         }
         System.out.println();
@@ -90,19 +90,24 @@ public class Application implements IApplication {
                 .sorted(RecordComparator::compare)
                 .map(rec -> new Query04Result(rec.getId(), rec.getSignature(), rec.getBook()))
                 .collect(Collectors.toList());
-       for(int i=0; i < temp.size();i++){
-        System.out.println(temp.get(i).toString());
+        for (int i = 0; i < temp.size(); i++) {
+            System.out.println(temp.get(i).toString());
         }
         System.out.println();
     }
 
     public void executeQuery05() {
-  /*      System.out.println("--- query05\n" +
+        System.out.println("--- query05\n" +
                 "SELECT id,book FROM data WHERE book IN ('book01','book03') AND (customerID = 1005)");
-        records.stream()
+        List temp = records.stream()
                 .filter(rec -> (rec.getCustomerID() == 1005))
-                .filter(rec -> rec.getCustomerID() == 1005))
-        System.out.println(); */
+                .filter(rec -> (rec.getBook().equals("book01") || rec.getBook().equals("book01")))
+                .map(rec -> new Query05Result(rec.getId(), rec.getBook()))
+                .collect(Collectors.toList());
+        for (Object aTemp : temp) {
+            System.out.println(aTemp.toString());
+        }
+        System.out.println();
     }
 
     public void executeQuery06() {
