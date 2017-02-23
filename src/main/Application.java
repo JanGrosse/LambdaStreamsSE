@@ -148,7 +148,7 @@ public class Application implements IApplication {
     public void executeQuery09() {
         System.out.println("--- query09\n" +
                 "SELECT book,COUNT(*) FROM data GROUP BY book");
-        long res = records.stream()
+        Map<String, Long> res = records.stream()
                 .collect(Collectors.groupingBy(Record::getBook, Collectors.counting()));
         System.out.println(res);
         System.out.println();
@@ -157,9 +157,9 @@ public class Application implements IApplication {
     public void executeQuery10() {
         System.out.println("--- query10\n" +
                 "SELECT location,COUNT(*) FROM data WHERE book IN ('book03','book05') GROUP BY location");
-        long res = records.stream()
+        Map<String, Long> res = records.stream()
                 .filter(rec -> (Objects.equals(rec.getBook(), "book03") || Objects.equals(rec.getBook(), "book05")))
-                .collect(Collectors.groupingBy(Record::getLocation));
+                .collect(Collectors.groupingBy(Record::getLocation, Collectors.counting()));
         System.out.println(res);
         System.out.println();
     }
