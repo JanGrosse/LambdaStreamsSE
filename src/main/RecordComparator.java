@@ -1,6 +1,6 @@
 package main;
-
 import com.google.common.collect.ComparisonChain;
+
 
 public class RecordComparator {
     static public int compare(Record record01, Record record02) {

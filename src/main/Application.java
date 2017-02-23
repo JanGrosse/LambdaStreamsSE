@@ -105,12 +105,12 @@ public class Application implements IApplication {
     }
 
     public void executeQuery05() {
-        System.out.println("--- query05\n" +
+  /*      System.out.println("--- query05\n" +
                 "SELECT id,book FROM data WHERE book IN ('book01','book03') AND (customerID = 1005)");
         records.stream()
                 .filter(rec -> (rec.getCustomerID() == 1005))
                 .filter(rec -> rec.getCustomerID() == 1005))
-        System.out.println();
+        System.out.println(); */
     }
 
     public void executeQuery06() {
