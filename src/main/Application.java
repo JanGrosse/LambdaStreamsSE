@@ -89,7 +89,9 @@ public class Application implements IApplication {
                 .sorted(Comparator.comparing(Record::getLocation))
                 .map(rec -> new Query03Result(rec.getId(), rec.getBook(), rec.getSignature(), rec.getLocation(), rec.getCustomerID()))
                 .collect(Collectors.toList());
-        System.out.println(temp.toString());
+        for(int i = 0; i < temp.size(); i++){
+            System.out.println(temp.get(i).toString());
+        }
         System.out.println();
     }
 
@@ -97,12 +99,13 @@ public class Application implements IApplication {
         System.out.println("--- query04\n" +
                 "SELECT id,book,signature FROM data ORDER BY book,signature DESC");
         System.out.println();
-        Object[] temp = records.stream()
+        List temp = records.stream()
                 .sorted(RecordComparator::compare)
                 .map(rec -> new Query04Result(rec.getId(), rec.getSignature(), rec.getBook()))
-                .toArray();
-       // Query04Result[] res = (Query04Result[]) temp;
-        System.out.println(Arrays.toString(temp));
+                .collect(Collectors.toList());
+        for(int i=0; i < temp.size();i++){
+            System.out.println(temp.get(i).toString());
+        }
         System.out.println();
     }
 

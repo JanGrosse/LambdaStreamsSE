@@ -10,7 +10,9 @@ public class Query04Result {
         this.signature = signature;
         this.book = book;
     }
-
+    public String toString(){
+        return "ID: "+id+", Signature: "+signature+", Book: "+book;
+    }
     public int getId() {
         return id;
     }

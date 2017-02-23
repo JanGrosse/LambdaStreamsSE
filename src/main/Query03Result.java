@@ -15,6 +15,10 @@ public class Query03Result {
         this.customerID = customerID;
     }
 
+    @Override
+    public String toString(){
+       return "ID: "+id+", Signature: "+signature+", Book: "+book+", Location: "+location;
+    }
     public int getId() {
         return id;
     }
